@@ -1,10 +1,8 @@
 import {
   faChartPie,
-  faCode,
   faCubes,
   faHouseChimney,
-  faPenFancy,
-  faSignature,
+  
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
@@ -60,11 +58,11 @@ const Hamburger = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const menu = [
     { name: "Home", href: "/about", icon: faHouseChimney },
-    { name: "About", href: "/about", icon: faSignature },
-    { name: "Skills", href: "/skills", icon: faCode },
-    { name: "Work", href: "/work", icon: faChartPie },
-    { name: "Projects", href: "/projects", icon: faCubes },
-    { name: "Contact", href: "/contact", icon: faPenFancy },
+    { name: "About", href: "/about", icon: faCubes },
+    { name: "Roadmap", href: "/skills", icon: faCubes },
+    { name: "Tokenomics", href: "/work", icon: faChartPie },
+    { name: "WhitePaper", href: "/projects", icon: faCubes },
+    
   ];
   return (
     <motion.nav
@@ -74,12 +72,12 @@ const Hamburger = () => {
       className="z-[2001] hamburger text-white"
     >
       <motion.div
-        className="h-4/5 w-1/2 bg-black absolute top-0 left-0"
+        className="absolute top-0 left-0 w-1/2 bg-black h-4/5"
         variants={sidebar}
       />
       <motion.ul
         variants={variantsNav}
-        className="hamburger-menu w-fit h-fit flex flex-col gap-3 fixed top-16 left-5"
+        className="fixed flex flex-col gap-3 hamburger-menu w-fit h-fit top-16 left-5"
       >
         {menu.map((item) => {
           return (
@@ -88,12 +86,12 @@ const Hamburger = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               key={item.name}
-              className="sidebar-item flex justify-start"
+              className="flex justify-start sidebar-item"
               onClick={() => toggleOpen()}
             >
               <Link
                 href={item.href}
-                className="text-white flex flex-row gap-5 hover:text-cyan-300">
+                className="flex flex-row gap-5 text-white hover:text-cyan-300">
 
                 <div className="flex justify-start">
                   <FontAwesomeObj
