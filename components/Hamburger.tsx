@@ -59,9 +59,9 @@ const Hamburger = () => {
   const menu = [
     { name: "Home", href: "/about", icon: faHouseChimney },
     { name: "About", href: "/about", icon: faCubes },
-    { name: "Roadmap", href: "/skills", icon: faCubes },
-    { name: "Tokenomics", href: "/work", icon: faChartPie },
-    { name: "WhitePaper", href: "/projects", icon: faCubes },
+    { name: "Roadmap", href: "/work", icon: faCubes },
+    { name: "Tokenomics", href: "/contact", icon: faChartPie },
+    { name: "Whitepaper", href: "/projects", icon: faCubes },
     
   ];
   return (
