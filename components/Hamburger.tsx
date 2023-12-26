@@ -60,8 +60,8 @@ const Hamburger = () => {
     { name: "Home", href: "/about", icon: faHouseChimney },
     { name: "About", href: "/about", icon: faCubes },
     { name: "Roadmap", href: "/skills", icon: faCubes },
-    { name: "Whitepaper", href: "/work", icon: faChartPie },
-    { name: "Tokenomics", href: "/projects", icon: faCubes },
+    { name: "Tokenomics", href: "/work", icon: faChartPie },
+    { name: "WhitePaper", href: "/projects", icon: faCubes },
     
   ];
   return (
