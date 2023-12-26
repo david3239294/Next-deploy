@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image'; // Import the Image component from next/image
 
 const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -72,21 +73,20 @@ const Canvas: React.FC = () => {
       }
 
       init(ctx: CanvasRenderingContext2D) {
-        const image1 = new Image();
-        image1.src = './images/Speaker.png';
-        image1.onload = () => {
-          this.img = image1;
+        this.img = document.createElement('img') as HTMLImageElement; // Instantiate a new Image object
+        this.img.src = '/images/Speaker.png'; // Set the image source
 
-          if (this.img) {
+        this.img.onload = () => {
+          if (this.img.complete) {
             ctx.drawImage(this.img, 0, 0, this.w, this.h);
 
             for (let y = 0; y < this.h; y += 3) {
               for (let x = 0; x < this.w; x += 3) {
                 const index = (y * this.w + x) * 4;
-                const red = 0; // Example: Set red color value
-                const green = 255; // Example: Set green color value
-                const blue = 0; // Example: Set blue color value
-                const alpha = 255; // Example: Set alpha value
+                const red = 0; // Set red color value
+                const green = 255; // Set green color value
+                const blue = 0; // Set blue color value
+                const alpha = 255; // Set alpha value
 
                 const color = `rgba(${red},${green},${blue},${alpha})`;
                 if (alpha > 0) {
@@ -105,8 +105,6 @@ const Canvas: React.FC = () => {
       }
 
       update() {
-        // Update particle positions
-        // For instance, you can update particle positions here based on the mouse interaction
         this.particleArray.forEach((particle) => {
           particle.x += (this.mouse.x - particle.x) * 0.02;
           particle.y += (this.mouse.y - particle.y) * 0.02;
@@ -134,9 +132,10 @@ const Canvas: React.FC = () => {
 
   return (
     <div>
-      <div className="h-full w-full canvas-container">
+      <div className="w-full h-full canvas-container">
         <canvas id="Canvas" ref={canvasRef}></canvas>
-        <img alt="avatar" src="/images/Speaker.png" width={100} height={100} />
+        {/* Replace the <img> tag with the Image component */}
+        <Image src="/images/Speaker.png" alt="avatar" width={100} height={100} />
       </div>
     </div>
   );
